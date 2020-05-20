@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CSS/Стилі.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <title>Каталог книг</title>
+</head>
+<body>
+<input type="text" placeholder="search" id="search" size="35px"><br>
+<input type="button" value="begin" id="srchbtn" name="a" onclick="a();">
+<script type="text/javascript">
+    var word;
+    function a() {
+        if (document.getElementById("search").value === "") {
+            alert('Вы забыли ввести текст.');
+        }
+        word = document.getElementById("search").value;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET","books.xml",false);
+        xmlhttp.send();
+        xmlDoc=xmlhttp.responseXML;
+
+        document.write("<html>\n" +
+            "<head>\n" +
+            "    <meta charset=\"UTF-8\">\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/Стилі.css\" />\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/style.css\" />\n" +
+            "    <title>Каталог книг</title>\n" +
+            "</head>\n" +
+            "<body>\n" +
+            "<table border='1' class='sheet'>\n" +
+            "    <tr>\n" +
+            "        <th>Назва книжок</th>\n" +
+            "        <th>Ціна</th>\n" +
+            "    </tr>\n"
+        );
+        var x=xmlDoc.getElementsByTagName("book");
+        for (var i=0;i<x.length;i++)
+        {
+            var objectHTMLCollection1 = x[i].getElementsByTagName("title"),
+                string1 = [].map.call( objectHTMLCollection1, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            var objectHTMLCollection2 = x[i].getElementsByTagName("author"),
+                string2 = [].map.call( objectHTMLCollection2, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            var objectHTMLCollection3 = x[i].getElementsByTagName("category"),
+                string3 = [].map.call( objectHTMLCollection3, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            var objectHTMLCollection4 = x[i].getElementsByTagName("year"),
+                string4 = [].map.call( objectHTMLCollection4, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            var objectHTMLCollection5 = x[i].getElementsByTagName("price"),
+                string5 = [].map.call( objectHTMLCollection5, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            if(string4===word)
+            {
+                document.write("<tr><td>");
+                document.write(string1);
+                document.write("</td><td>");
+                document.write(string2);
+                document.write("</td><td>");
+                document.write(string3);
+                document.write("</td><td>");
+                document.write(string4);
+                document.write("</td><td>");
+                document.write(string5);
+                document.write("</td></tr>");
+            }
+        }
+        document.write("</table>\n" +
+            "</body>\n" +
+            "</html>)");
+    }
+</script>
+</body>
+</html>

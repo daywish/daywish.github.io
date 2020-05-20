@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/Стилі.css"?>
+<!DOCTYPE vocablulary [
+        <!ELEMENT vocablulary (word*)>
+        <!ELEMENT word (writing, translation)>
+        <!ELEMENT writing (#PCDATA)>
+        <!ELEMENT translation (#PCDATA)>
+        ]>
+<vocablulary>
+<word>
+    <writing>advantage</writing>
+    <translation>преимущество</translation>
+</word>
+    <word>
+        <writing>animation</writing>
+        <translation>анимация</translation>
+    </word>
+    <word>
+        <writing>benefit</writing>
+        <translation>выгода</translation>
+    </word>
+    <word>
+        <writing>customer</writing>
+        <translation>покупатель</translation>
+    </word>
+    <word>
+        <writing>device</writing>
+        <translation>устройство</translation>
+    </word>
+    <word>
+        <writing>engine</writing>
+        <translation>двигатель(движок)</translation>
+    </word>
+    <word>
+        <writing>environment</writing>
+        <translation>среда</translation>
+    </word>
+    <word>
+        <writing>hard disk</writing>
+        <translation>накопитель</translation>
+    </word>
+    <word>
+        <writing>inventory</writing>
+        <translation>инвентарь</translation>
+    </word>
+    <word>
+        <writing>landscape</writing>
+        <translation>пейзаж</translation>
+    </word>
+    <word>
+        <writing>password</writing>
+        <translation>пароль</translation>
+    </word>
+    <word>
+        <writing>remote</writing>
+        <translation>удалённый</translation>
+    </word>
+    <word>
+        <writing>security system</writing>
+        <translation>система безопасности</translation>
+    </word>
+    <word>
+        <writing>spreadsheet</writing>
+        <translation>таблица</translation>
+    </word>
+    <word>
+        <writing>word processor</writing>
+        <translation>текстовый редактор</translation>
+    </word>
+</vocablulary>

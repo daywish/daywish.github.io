@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/Стилі.css"?>
+<!DOCTYPE bookstore [
+<!ELEMENT bookstore (book*)>
+<!ELEMENT book (title, author, category, year, price)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+]>
+<bookstore>
+    <book>
+        <title>Sapiens. Людина розумна. Історія людства від минулого до майбутнього.</title>
+        <author>Ю. Н. Харарі</author>
+        <category>Історія</category>
+        <year>2011</year>
+        <price>140₴</price>
+    </book>
+    <book>
+        <title>Блакитна цятка: космічне майбутнє людства.</title>
+        <author>К. Саган</author>
+        <category>Космос</category>
+        <year>2019</year>
+        <price>220₴</price>
+    </book>
+    <book>
+        <title>Теорія всього.</title>
+        <author>С. Гокінґ</author>
+        <category>Наука</category>
+        <year>2019</year>
+        <price>170₴</price>
+    </book>
+    <book>
+        <title>Чорні діри і молоді Всесвіти.</title>
+        <author>С. Гокінґ</author>
+        <category>Наука</category>
+        <year>2019</year>
+        <price>140₴</price>
+    </book>
+    <book>
+        <title>English: часи дієслова.</title>
+        <author>С. Дугін</author>
+        <category>Навачання</category>
+        <year>2016</year>
+        <price>60₴</price>
+    </book>
+    <book>
+        <title>English. Усі фрази та діалоги.</title>
+        <author>Л. Зінов'єва, В. Омеляненко</author>
+        <category>Навчання</category>
+        <year>2019</year>
+        <price>75₴</price>
+    </book>
+    <book>
+        <title>Англійська без репетитора.</title>
+        <author>О. Оваденко</author>
+        <category>Навчання</category>
+        <year>2016</year>
+        <price>100₴</price>
+    </book>
+    <book>
+        <title>Ми - це наш мозок.</title>
+        <author>Д. Свааб</author>
+        <category>Навчання</category>
+        <year>2016</year>
+        <price>160₴</price>
+    </book>
+    <book>
+        <title>English: Граматика.</title>
+        <author>С. Дугін</author>
+        <category>Навчання</category>
+        <year>2019</year>
+        <price>95₴</price>
+    </book>
+</bookstore>

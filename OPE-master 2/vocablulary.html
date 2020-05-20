@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CSS/Стилі.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <title>Словник</title>
+</head>
+<body>
+<div class="pos4">
+    <h1>Словник</h1>
+    <input type="text" placeholder="search" id="search" size="35px"><br>
+    <input type="button" value="translate" id="translate" name="a" onclick="a();">
+    <input type="button" value="перевести" id="перевести" name="b" onclick="b();">
+</div>
+<script type="text/javascript">
+    var word;
+    var xmlhttp;
+    var xmlDoc;
+    function a() {
+        if (document.getElementById("search").value === "") {
+            alert('You forgot to enter the word.');
+            document.forms.my.reset();
+            location.reload();
+        }
+        word = document.getElementById("search").value;
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp = new XMLHttpRequest();
+        }
+        else
+        {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET","vocablulary.xml",false);
+        xmlhttp.send();
+        xmlDoc=xmlhttp.responseXML;
+
+        document.write(
+            "<html>\n" +
+            "<head>\n" +
+            "    <meta charset=\"UTF-8\">\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/Стилі.css\" />\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/style.css\" />\n" +
+            "    <title>Translate</title>\n" +
+            "</head>\n" +
+            "<body>\n" +
+            "<div class='pos4'>\n" +
+            "<table border='1' class='sheet'>\n" +
+            "    <tr>\n" +
+            "        <th>Writing</th>\n" +
+            "        <th>Translation</th>\n" +
+            "    </tr>\n"
+        );
+        var x=xmlDoc.getElementsByTagName("word");
+        for (var i=0; i<x.length; i++)
+        {
+            var objectHTMLCollection1 = x[i].getElementsByTagName("writing"),
+                string1 = [].map.call( objectHTMLCollection1, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            var objectHTMLCollection2 = x[i].getElementsByTagName("translation"),
+                string2 = [].map.call( objectHTMLCollection2, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            if(string1===word)
+            {
+                document.write("<tr><td>");
+                document.write(string1);
+                document.write("</td><td>");
+                document.write(string2);
+                document.write("</td></tr>");
+            }
+        }
+        document.write(
+            "</div>\n" +
+            "</table>\n" +
+            "</body>\n" +
+            "</html>)"
+        );
+    }
+    function b() {
+        if (document.getElementById("search").value === "") {
+            alert('Вы забыли ввести слово.');
+            document.forms.my.reset();
+            location.reload();
+        }
+        word = document.getElementById("search").value;
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp = new XMLHttpRequest();
+        }
+        else
+        {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET","vocablulary.xml",false);
+        xmlhttp.send();
+        xmlDoc=xmlhttp.responseXML;
+
+        document.write(
+            "<html>\n" +
+            "<head>\n" +
+            "    <meta charset=\"UTF-8\">\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/Стилі.css\" />\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/style.css\" />\n" +
+            "    <title>Перевод</title>\n" +
+            "</head>\n" +
+            "<body>\n" +
+            "<div class='pos4'>\n" +
+            "<table border='1' class='sheet'>\n" +
+            "    <tr>\n" +
+            "        <th>Написание</th>\n" +
+            "        <th>Перевод</th>\n" +
+            "    </tr>\n"
+        );
+        var x=xmlDoc.getElementsByTagName("word");
+        for (var i=0; i<x.length; i++)
+        {
+            var objectHTMLCollection1 = x[i].getElementsByTagName("writing"),
+                string1 = [].map.call( objectHTMLCollection1, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            var objectHTMLCollection2 = x[i].getElementsByTagName("translation"),
+                string2 = [].map.call( objectHTMLCollection2, function(node){
+                    return node.textContent || node.innerText || "";
+                }).join("");
+            if(string2===word)
+            {
+                document.write("<tr><td>");
+                document.write(string2);
+                document.write("</td><td>");
+                document.write(string1);
+                document.write("</td></tr>");
+            }
+        }
+        document.write(
+            "</div>\n" +
+            "</table>\n" +
+            "</body>\n" +
+            "</html>)"
+        );
+    }
+</script>
+</body>
+</html>

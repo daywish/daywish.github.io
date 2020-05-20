@@ -169,4 +169,32 @@ figcaption
     font-family: "Times New Roman";
     font-size: 21px;
 }
+bookstore
+{
+    background-color: #f0ffff;
+    width: 100%;
+}
+book
+{
+    display: block;
+    margin-bottom: 30pt;
+    margin-left: 0;
+}
+title
+{
+    color: #FF0000;
+    font-size: 20pt;
+}
+author
+{
+    color: #0000FF;
+    font-size: 20pt;
+}
+category, year, price
+{
+    display: block;
+    color: #000000;
+    margin-left: 20pt;
+}
+
 
