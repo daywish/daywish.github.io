@@ -7,10 +7,10 @@
         <!ELEMENT translation (#PCDATA)>
         ]>
 <vocablulary>
-<word>
-    <writing>advantage</writing>
-    <translation>преимущество</translation>
-</word>
+    <word>
+        <writing>advantage</writing>
+        <translation>преимущество</translation>
+    </word>
     <word>
         <writing>animation</writing>
         <translation>анимация</translation>
