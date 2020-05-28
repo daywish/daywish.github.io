@@ -161,40 +161,27 @@ h6{
     font-family:Tahoma, sans-serif;
     font-size:20px;
     font-weight:bold;
-    color:#0000cc;
+    color:white;
 }
-figcaption
-{
-    color: #1ff2ff;
-    font-family: "Times New Roman";
-    font-size: 21px;
+.NameHighlights {
+    position:relative;
+    color: white;
 }
-bookstore
-{
-    background-color: #f0ffff;
-    width: 100%;
+.NameHighlights div {
+    display: none;
 }
-book
-{
-    display: block;
-    margin-bottom: 30pt;
-    margin-left: 0;
+.NameHighlightsHover {
+    position:relative;
 }
-title
-{
-    color: #FF0000;
-    font-size: 20pt;
+.NameHighlightsHover div {
+    display:block;
+    position:absolute;
+    width: 15em;
+    top:1.3em;
+    *top:20px;
+    left:70px;
+    z-index:1000;
+    background-color: #DDD;
+    padding: 5px;
+    border-radius: 4px;
 }
-author
-{
-    color: #0000FF;
-    font-size: 20pt;
-}
-category, year, price
-{
-    display: block;
-    color: #000000;
-    margin-left: 20pt;
-}
-
-
