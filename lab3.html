@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="CSS/Стилі.css">
+    <title>Laba3</title>
+</head>
+<body>
+<header>
+    <h1>Коротка інформація</h1>
+</header>
+<main>
+<canvas id="canvas" height="250" width="250">
+    <script>
+        var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.rotate(-Math.PI/4);
+            ctx.moveTo(50,150);
+            ctx.lineTo(130,150);
+            ctx.lineTo(50,230);
+            ctx.fillStyle = "blue";
+            ctx.fill();
+            ctx.rotate(Math.PI/4);
+            ctx.scale(0.9 , 0.9);
+            ctx.beginPath();
+            ctx.translate(50, -45);
+            ctx.moveTo(150,250);
+            ctx.lineTo(150,170);
+            ctx.lineTo(70,250);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.closePath();
+            ctx.stroke();
+
+    </script>
+</canvas>
+    <form>
+        <fieldset>
+            <p><label for="datetime">Дата</label><input type="datetime-local" id="datetime" required></p>
+            <p><label for="email">E-mail</label><input type="email" id="email" required></p>
+            <p><label for="tel">Телефон у форматі 0хх-ххх-хх-хх</label><input type="tel" id="tel" pattern="0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required></p>
+            <p><label for="url">Ваш url</label><input type="url" id="url" required></p>
+        </fieldset>
+        <p><input type="submit" value="Отправить"></p>
+    </form>
+    <button id = "find-me">Отримати місцезнаходження</button><br/>
+    <p id = "status"></p>
+    <a id = "map-link" target="_blank"></a>
+    <script>
+        function geoFindMe() {
+
+            const status = document.querySelector('#status');
+            const mapLink = document.querySelector('#map-link');
+
+            mapLink.href = '';
+            mapLink.textContent = '';
+
+            function success(position) {
+                const latitude  = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                status.textContent = '';
+                mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+                mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+            }
+
+            function error() {
+                status.textContent = 'Unable to retrieve your location';
+            }
+
+            if(!navigator.geolocation) {
+                status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+                status.textContent = 'Locating…';
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+
+        }
+
+        document.querySelector('#find-me').addEventListener('click', geoFindMe);
+    </script>
+    <figure>
+        <figcaption>Пісня для сайту</figcaption>
+        <audio controls src="Ghost%20-%20He%20Is%20(Music%20Video).webm">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+    </figure>
+    <figure>
+        <figcaption>Відео для сайту</figcaption>
+        <video controls src="Ghost%20-%20He%20Is%20(Music%20Video).webm">
+            Your browser does not support the
+            <code>video</code> element.
+        </video>
+    </figure>
+</main>
+<footer>
+    <nav class="menu">
+    <ul>
+        <li><a href="Головна.html">Головна</a></li>
+        <li><a href="Про%20нас.html">Про нас</a></li>
+        <li><a href="Отзыв.html">Відгуки</a></li>
+    </ul>
+    </nav>
+</footer>
+</body>
+</html>
